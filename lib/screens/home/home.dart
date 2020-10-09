@@ -30,28 +30,30 @@ class Home extends StatelessWidget {
               onTap: () => Navigator.of(context).push(MaterialPageRoute(
                 builder: (context) => Lock(),
               )),
-              child: Card(
-                elevation: 24,
-                color: Colors.orange,
-                child: Stack(
-                  children: <Widget>[
-                    Center(
-                      child: Icon(
-                        Icons.lock,
-                        size: 100,
-                        color: Colors.black,
+              child: Container(
+                child: Card(
+                  elevation: 24,
+                  color: Colors.orange,
+                  child: Stack(
+                    children: <Widget>[
+                      Center(
+                        child: Icon(
+                          Icons.lock,
+                          size: 100,
+                          color: Colors.black,
+                        ),
                       ),
-                    ),
-                    Container(
-                      margin: EdgeInsets.only(top: 160, left: 75),
-                      child: Text('Lock',
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 22.0,
-                              fontWeight: FontWeight.bold)),
-                    )
-                  ],
+                      Container(
+                        margin: EdgeInsets.only(top: 160, left: 75),
+                        child: Text('Lock',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 22.0,
+                                fontWeight: FontWeight.bold)),
+                      )
+                    ],
+                  ),
                 ),
               ),
             ),
