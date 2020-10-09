@@ -1,5 +1,4 @@
 import 'package:AppLocker/models/user.dart';
-import 'package:AppLocker/screens/home/home1.dart';
 import 'package:flutter/material.dart';
 
 import 'package:AppLocker/screens/authenticate/authenticate.dart';
