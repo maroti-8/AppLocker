@@ -1,3 +1,4 @@
+import 'package:AppLocker/encrypt/my-encrypt.dart';
 import 'package:AppLocker/shared/constants.dart';
 import 'package:flutter/material.dart';
 
@@ -73,6 +74,7 @@ class _LockState extends State<Lock> {
                     ),
                     onPressed: () async {
                       if (_formKey.currentState.validate()) {
+                        print(encryptAESCryptoJS(inData, hintData));
                         Scaffold.of(context).showSnackBar(SnackBar(
                           content: Text('Data Locked'),
                           duration: Duration(seconds: 3),

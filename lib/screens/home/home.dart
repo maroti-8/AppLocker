@@ -13,7 +13,7 @@ class Home extends StatelessWidget {
     return Scaffold(
         appBar: AppBar(
           title: Text('App Locker'),
-          elevation: 0.0,
+          elevation: 10,
           actions: <Widget>[
             FlatButton.icon(
                 onPressed: () async {
@@ -23,29 +23,62 @@ class Home extends StatelessWidget {
                 label: Text('Logout'))
           ],
         ),
-        body: GridView.count(
-          crossAxisCount: 2,
-          children: <Widget>[
-            GestureDetector(
-              onTap: () => Navigator.of(context).push(MaterialPageRoute(
-                builder: (context) => Lock(),
-              )),
-              child: Container(
+        body: Container(
+          margin: EdgeInsets.all(20),
+          child: GridView.count(
+            crossAxisCount: 2,
+            crossAxisSpacing: 2,
+            children: <Widget>[
+              GestureDetector(
+                onTap: () => Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => Lock(),
+                )),
+                child: Container(
+                  child: Card(
+                    elevation: 24,
+                    color: Colors.orange,
+                    child: Stack(
+                      children: <Widget>[
+                        Center(
+                          child: Icon(
+                            Icons.lock,
+                            size: 100,
+                            color: Colors.black,
+                          ),
+                        ),
+                        Container(
+                          margin: EdgeInsets.only(top: 150, left: 65),
+                          child: Text('Lock',
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 22.0,
+                                  fontWeight: FontWeight.bold)),
+                        )
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+              GestureDetector(
+                onTap: () => Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => Gallary(),
+                )),
                 child: Card(
                   elevation: 24,
-                  color: Colors.orange,
+                  color: Colors.purple,
                   child: Stack(
                     children: <Widget>[
                       Center(
                         child: Icon(
-                          Icons.lock,
+                          Icons.photo,
                           size: 100,
-                          color: Colors.black,
+                          color: Colors.white,
                         ),
                       ),
                       Container(
-                        margin: EdgeInsets.only(top: 160, left: 75),
-                        child: Text('Lock',
+                        margin: EdgeInsets.only(top: 150, left: 55),
+                        child: Text('Gallary',
                             textAlign: TextAlign.center,
                             style: TextStyle(
                                 color: Colors.white,
@@ -56,37 +89,8 @@ class Home extends StatelessWidget {
                   ),
                 ),
               ),
-            ),
-            GestureDetector(
-              onTap: () => Navigator.of(context).push(MaterialPageRoute(
-                builder: (context) => Gallary(),
-              )),
-              child: Card(
-                elevation: 24,
-                color: Colors.purple,
-                child: Stack(
-                  children: <Widget>[
-                    Center(
-                      child: Icon(
-                        Icons.photo,
-                        size: 100,
-                        color: Colors.white,
-                      ),
-                    ),
-                    Container(
-                      margin: EdgeInsets.only(top: 160, left: 60),
-                      child: Text('Gallary',
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 22.0,
-                              fontWeight: FontWeight.bold)),
-                    )
-                  ],
-                ),
-              ),
-            ),
-          ],
+            ],
+          ),
         ));
   }
 }
