@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "392199760622",
+    "firebase_url": "https://applocker1-68029.firebaseio.com",
+    "project_id": "applocker1-68029",
+    "storage_bucket": "applocker1-68029.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:392199760622:android:e7a9c241117d156776e1ff",
+        "android_client_info": {
+          "package_name": "com.example.AppLocker"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "392199760622-j54ie495268mrjjg12bf8ttkg2pijv2r.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAPS5TGgwQYg_62A4BkRgMglGS7pTULp24"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "392199760622-j54ie495268mrjjg12bf8ttkg2pijv2r.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
