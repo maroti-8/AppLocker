@@ -3,7 +3,13 @@ import 'dart:math';
 import 'dart:typed_data';
 import 'package:crypto/crypto.dart';
 import 'package:tuple/tuple.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:encrypt/encrypt.dart' as encrypt;
+
+final FirebaseAuth auth = FirebaseAuth.instance;
+
+final User user = auth.currentUser;
+final String userid = user.uid;
 
 String encryptAESCryptoJS(String plainText, String passphrase) {
   try {
@@ -11,12 +17,13 @@ String encryptAESCryptoJS(String plainText, String passphrase) {
     var keyndIV = deriveKeyAndIV(passphrase, salt);
     final key = encrypt.Key(keyndIV.item1);
     final iv = encrypt.IV(keyndIV.item2);
+    print(userid);
 
     final encrypter = encrypt.Encrypter(
         encrypt.AES(key, mode: encrypt.AESMode.cbc, padding: "PKCS7"));
     final encrypted = encrypter.encrypt(plainText, iv: iv);
     Uint8List encryptedBytesWithSalt = Uint8List.fromList(
-        createUint8ListFromString("Salted__") + salt + encrypted.bytes);
+        createUint8ListFromString(userid) + salt + encrypted.bytes);
     return base64.encode(encryptedBytesWithSalt);
   } catch (error) {
     throw error;

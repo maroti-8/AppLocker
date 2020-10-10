@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:AppLocker/encrypt/my-encrypt.dart';
 import 'package:AppLocker/shared/constants.dart';
 import 'package:flutter/material.dart';
@@ -11,10 +13,12 @@ class _LockState extends State<Lock> {
   String inData = '';
   String hintData = '';
   String error = '';
+  String encrypted = '';
   final _formKey = GlobalKey<FormState>();
 
   final fieldText_Data = TextEditingController();
   final fieldText_hintData = TextEditingController();
+  final fieldText_encdata = TextEditingController();
 
   void clearText() {
     fieldText_Data.clear();
@@ -65,6 +69,12 @@ class _LockState extends State<Lock> {
                 SizedBox(
                   height: 20.0,
                 ),
+                SizedBox(
+                  child: Text(encrypted),
+                ),
+                SizedBox(
+                  height: 20.0,
+                ),
                 Builder(
                   builder: (context) => RaisedButton(
                     color: Colors.grey[600],
@@ -74,7 +84,15 @@ class _LockState extends State<Lock> {
                     ),
                     onPressed: () async {
                       if (_formKey.currentState.validate()) {
-                        print(encryptAESCryptoJS(inData, hintData));
+                        setState(() {
+                          encrypted = encryptAESCryptoJS(inData, hintData);
+                        });
+                        Future.delayed(const Duration(seconds: 2), () {
+                          setState(() {
+                            encrypted = '';
+                          });
+                          ;
+                        });
                         Scaffold.of(context).showSnackBar(SnackBar(
                           content: Text('Data Locked'),
                           duration: Duration(seconds: 3),
